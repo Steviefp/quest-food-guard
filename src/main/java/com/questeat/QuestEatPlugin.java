@@ -1,6 +1,5 @@
 package com.questeat;
 
-import com.google.inject.Provides;
 
 import javax.inject.Inject;
 
@@ -8,27 +7,21 @@ import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
 import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.api.gameval.ItemID;
-import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 @Slf4j
 @PluginDescriptor(
-        name = "Example"
+        name = "Quest Eat"
 )
 public class QuestEatPlugin extends Plugin {
     @Inject
     private Client client;
 
-    @Inject
-    private QuestEatConfig config;
-
-    private boolean confirmTomatoEat = false;
 
     // quest edible ID's
     // EVIL DAVE STEW NOT ADDED
@@ -54,8 +47,8 @@ public class QuestEatPlugin extends Plugin {
     @Subscribe
     public void onMenuEntryAdded(MenuEntryAdded event) {
         // would like to only check inv
-//        if (event.getActionParam0() != WidgetID.INVENTORY_GROUP_ID)
-//            return;
+
+        System.out.println("TESTING: " + event.getMenuEntry().getParam0());
 
         MenuEntry[] entries = client.getMenuEntries();
         List<MenuEntry> newEntries = new ArrayList<>();
@@ -66,7 +59,7 @@ public class QuestEatPlugin extends Plugin {
             }
         }
 
-// Update menu entries with the filtered list
+        // Update menu entries with the filtered list
         client.setMenuEntries(newEntries.toArray(new MenuEntry[0]));
     }
 
@@ -82,8 +75,4 @@ public class QuestEatPlugin extends Plugin {
     }
 
 
-    @Provides
-    QuestEatConfig provideConfig(ConfigManager configManager) {
-        return configManager.getConfig(QuestEatConfig.class);
-    }
 }
