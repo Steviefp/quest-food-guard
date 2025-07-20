@@ -47,9 +47,6 @@ public class QuestEatPlugin extends Plugin {
     @Subscribe
     public void onMenuEntryAdded(MenuEntryAdded event) {
         // would like to only check inv
-
-        System.out.println("TESTING: " + event.getMenuEntry().getParam0());
-
         MenuEntry[] entries = client.getMenuEntries();
         List<MenuEntry> newEntries = new ArrayList<>();
 
