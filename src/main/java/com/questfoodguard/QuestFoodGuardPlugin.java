@@ -1,4 +1,4 @@
-package com.questeat;
+package com.questfoodguard;
 
 
 import javax.inject.Inject;
@@ -10,15 +10,14 @@ import net.runelite.api.gameval.ItemID;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Set;
 
 @Slf4j
 @PluginDescriptor(
         name = "Quest Eat"
 )
-public class QuestEatPlugin extends Plugin {
+public class QuestFoodGuardPlugin extends Plugin {
     @Inject
     private Client client;
 
@@ -41,35 +40,28 @@ public class QuestEatPlugin extends Plugin {
 
 
     /*
-    Look for inventory event
-    check if its edible
+    Iterates through menu entries, checks if item has eat option and is a quest item
     */
     @Subscribe
     public void onMenuEntryAdded(MenuEntryAdded event) {
-        // would like to only check inv
-        MenuEntry[] entries = client.getMenuEntries();
-        List<MenuEntry> newEntries = new ArrayList<>();
+
+        MenuEntry[] entries = client.getMenu().getMenuEntries();
 
         for (MenuEntry entry : entries) {
-            if (!(entry.getOption().equals("Eat") && CONFIRM_ITEMS.contains(entry.getItemId()))) {
-                newEntries.add(entry);
+            if ((entry.getOption().equals("Eat") && CONFIRM_ITEMS.contains(entry.getItemId()))) {
+                client.getMenu().removeMenuEntry(entry);
             }
         }
-
-        // Update menu entries with the filtered list
-        client.setMenuEntries(newEntries.toArray(new MenuEntry[0]));
     }
 
 
-    @Override
-    protected void startUp() throws Exception {
-        log.info("Example started!");
-    }
-
-    @Override
-    protected void shutDown() throws Exception {
-        log.info("Example stopped!");
-    }
+//    @Override
+//    protected void startUp() throws Exception {
+//    }
+//
+//    @Override
+//    protected void shutDown() throws Exception {
+//    }
 
 
 }

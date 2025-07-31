@@ -1,4 +1,4 @@
-# QuestEat Plugin
+# QuestFoodGuard Plugin
 
 ## Overview
 
