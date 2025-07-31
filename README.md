@@ -29,6 +29,8 @@ Currently blocked items include (example list):
 - Cooked Jubbly Meat (RFD)
 - Cooked Stuffed Snake (RFD)
 - Gout Touber
+- Onion
+- Cabbage
 
 *Note: The list can be expanded or customized by modifying the plugin source code.*
 

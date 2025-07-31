@@ -34,7 +34,9 @@ public class QuestFoodGuardPlugin extends Plugin {
             ItemID.HUNDRED_PIRATE_FISHCAKE,
             ItemID._100_JUBBLY_MEAT_COOKED,
             ItemID.HUNDRED_ILM_COOKED_STUFFED_SNAKE,
-            ItemID.VILLAGE_RARE_TUBER
+            ItemID.VILLAGE_RARE_TUBER,
+            ItemID.ONION,
+            ItemID.CABBAGE
 
     );
 
