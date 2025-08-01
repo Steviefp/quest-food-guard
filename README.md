@@ -1,8 +1,8 @@
-# QuestFoodGuard Plugin
+# Quest Food Guard Plugin
 
 ## Overview
 
-**QuestEat** is a RuneLite plugin designed to prevent players from accidentally eating specific food items that are required for quests. Some quest foods have important uses beyond just being edible — eating them by mistake can break or hinder quest progression. This plugin blocks the "eat" action on these critical quest foods, helping players avoid costly mistakes.
+**Quest Food Guard** is a RuneLite plugin designed to prevent players from accidentally eating specific food items that are required for quests. Some quest foods have important uses beyond just being edible — eating them by mistake can break or hinder quest progression. This plugin blocks the "eat" action on these critical quest foods, helping players avoid costly mistakes.
 
 ## Features
 
@@ -17,7 +17,7 @@ The plugin listens for menu and item interaction events. When a player tries to 
 
 ## Supported Items
 
-Currently blocked items include (example list):
+Currently blocked items include:
 
 - Tomato
 - Banana
@@ -34,13 +34,6 @@ Currently blocked items include (example list):
 
 *Note: The list can be expanded or customized by modifying the plugin source code.*
 
-
-
 ## Contributing
 
 Feel free to submit pull requests for adding more quest foods or improving the plugin!
-
----
-
-*Developed by [Steven Price]*
-
